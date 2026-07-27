@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Send, CheckCircle } from "lucide-react";
 
 export default function ContactSection() {
@@ -21,16 +20,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-16">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-primary text-sm uppercase tracking-[0.2em] font-medium mb-4">
+    <section id="contact" className="py-20 sm:py-28 bg-card">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div>
+            <p className="text-muted-foreground text-sm uppercase tracking-[0.15em] font-medium mb-4">
               Contact
             </p>
             <h2 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-8 leading-tight">
@@ -73,17 +67,12 @@ export default function ContactSection() {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
+          <div>
             <form
               onSubmit={handleSubmit}
-              className="bg-background rounded-2xl p-8 border border-border shadow-sm"
+              className="bg-background p-8 border border-border"
             >
               <div className="space-y-5">
                 <div>
@@ -96,7 +85,7 @@ export default function ContactSection() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full px-4 py-3 border border-border bg-card focus:outline-none focus:border-primary transition-colors"
                     placeholder="Votre nom"
                   />
                 </div>
@@ -110,7 +99,7 @@ export default function ContactSection() {
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full px-4 py-3 border border-border bg-card focus:outline-none focus:border-primary transition-colors"
                     placeholder="votre@email.com"
                   />
                 </div>
@@ -123,7 +112,7 @@ export default function ContactSection() {
                     type="tel"
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full px-4 py-3 border border-border bg-card focus:outline-none focus:border-primary transition-colors"
                     placeholder="+33 ..."
                   />
                 </div>
@@ -135,7 +124,7 @@ export default function ContactSection() {
                     id="subject"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                    className="w-full px-4 py-3 border border-border bg-card focus:outline-none focus:border-primary transition-colors"
                   >
                     <option>Réservation</option>
                     <option>Renseignement hôtel</option>
@@ -153,14 +142,14 @@ export default function ContactSection() {
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"
+                    className="w-full px-4 py-3 border border-border bg-card focus:outline-none focus:border-primary transition-colors resize-none"
                     placeholder="Votre message..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-semibold hover:bg-accent transition-all shadow-md hover:shadow-lg"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 font-medium hover:bg-foreground hover:text-background transition-colors"
                 >
                   {sent ? (
                     <>
@@ -176,7 +165,7 @@ export default function ContactSection() {
                 </button>
               </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

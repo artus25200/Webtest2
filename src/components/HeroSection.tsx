@@ -7,7 +7,7 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-stone-900/70 via-stone-800/50 to-amber-950/60 z-10" />
+      <div className="absolute inset-0 bg-black/40 z-10" />
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -22,13 +22,13 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <p className="text-amber-300 text-sm sm:text-base uppercase tracking-[0.3em] mb-4 font-medium">
+          <p className="text-white/80 text-sm sm:text-base uppercase tracking-[0.2em] mb-4 font-medium">
             Restaurant & Hôtel
           </p>
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif font-bold mb-6 leading-tight">
             L'Ardoise
             <br />
-            <span className="text-amber-200 italic">Gourmande</span>
+            <span className="italic font-light">Gourmande</span>
           </h1>
           <p className="text-lg sm:text-xl text-stone-200 max-w-2xl mx-auto mb-10 leading-relaxed">
             Une cuisine française traditionnelle aux saveurs authentiques, des
@@ -39,29 +39,29 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a
               href="tel:+33608988419"
-              className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-xl hover:shadow-2xl hover:scale-105"
+              className="inline-flex items-center gap-2 bg-white text-foreground px-8 py-4 text-lg font-medium hover:bg-background transition-colors"
             >
               Réserver une table
             </a>
             <a
               href="#about"
-              className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-white/60 text-white px-8 py-4 rounded-full text-lg font-medium transition-all hover:bg-white/10"
+              className="inline-flex items-center gap-2 border border-white/40 text-white px-8 py-4 text-lg font-medium hover:bg-white/10 transition-colors"
             >
               Découvrir
             </a>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-stone-300">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/80">
             <div className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-amber-400" />
+              <MapPin className="w-4 h-4" />
               <span>15 Place de la République, Carbonne</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-amber-400" />
+              <Clock className="w-4 h-4" />
               <span>Mar-Sam · Midi & Soir</span>
             </div>
             <div className="flex items-center gap-2">
-              <Star className="w-4 h-4 text-amber-400" />
+              <Star className="w-4 h-4" />
               <span>4.5 / 5</span>
             </div>
           </div>

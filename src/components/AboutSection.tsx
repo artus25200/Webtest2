@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import { UtensilsCrossed, ChefHat, Leaf, Users } from "lucide-react";
 
 const features = [
@@ -30,16 +30,11 @@ const features = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-white">
+    <section id="about" className="py-20 sm:py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="text-primary text-sm uppercase tracking-[0.2em] font-medium mb-4">
+          <div>
+            <p className="text-muted-foreground text-sm uppercase tracking-[0.15em] font-medium mb-4">
               Notre Histoire
             </p>
             <h2 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-8 leading-tight">
@@ -63,45 +58,35 @@ export default function AboutSection() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold hover:bg-accent transition-colors shadow-md"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 font-medium hover:bg-foreground hover:text-background transition-colors"
               >
                 Nous contacter
               </a>
               <a
                 href="#menu"
-                className="inline-flex items-center gap-2 border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold hover:bg-primary/5 transition-colors"
+                className="inline-flex items-center gap-2 border border-primary text-primary px-6 py-3 font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 Voir la carte
               </a>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-            className="grid grid-cols-2 gap-6"
-          >
-            {features.map((feature, i) => (
-              <motion.div
+          <div className="grid grid-cols-2 gap-6">
+            {features.map((feature) => (
+              <div
                 key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="bg-card p-6 rounded-2xl border border-border hover:border-primary/30 hover:shadow-lg transition-all group"
+                className="bg-card p-6 border border-border"
               >
-                <feature.icon className="w-8 h-8 text-primary mb-4 group-hover:text-accent transition-colors" />
+                <feature.icon className="w-7 h-7 text-primary mb-4" />
                 <h3 className="font-serif font-bold text-lg mb-2">
                   {feature.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

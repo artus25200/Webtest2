@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Beef, Fish, Salad, Coffee, Wine, CakeSlice } from "lucide-react";
 
 const categories = [
@@ -41,16 +40,10 @@ const categories = [
 
 export default function MenuSection() {
   return (
-    <section id="menu" className="py-24 sm:py-32 bg-card">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-primary text-sm uppercase tracking-[0.2em] font-medium mb-4">
+    <section id="menu" className="py-20 sm:py-28 bg-card">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-16">
+          <p className="text-muted-foreground text-sm uppercase tracking-[0.15em] font-medium mb-4">
             Notre Carte
           </p>
           <h2 className="text-4xl sm:text-5xl font-serif font-bold text-foreground mb-6">
@@ -60,63 +53,51 @@ export default function MenuSection() {
             Découvrez notre sélection de plats préparés avec passion à partir de
             produits frais et locaux. Carte complète disponible au restaurant.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {categories.map((cat, i) => (
-            <motion.div
+        <div className="grid md:grid-cols-2 gap-6">
+          {categories.map((cat) => (
+            <div
               key={cat.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="bg-background rounded-2xl p-6 sm:p-8 border border-border hover:shadow-lg transition-shadow"
+              className="bg-background p-6 sm:p-8 border border-border"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <cat.icon className="w-6 h-6 text-primary" />
-                <h3 className="text-2xl font-serif font-bold">{cat.title}</h3>
+              <div className="flex items-center gap-3 mb-6 border-b border-border pb-4">
+                <cat.icon className="w-5 h-5 text-primary" />
+                <h3 className="text-xl font-serif font-bold">{cat.title}</h3>
               </div>
               <div className="space-y-4">
                 {cat.items.map((item) => (
                   <div
                     key={item.name}
-                    className="flex justify-between items-start gap-4 pb-4 border-b border-border last:border-0 last:pb-0"
+                    className="flex justify-between items-start gap-4"
                   >
                     <div>
-                      <h4 className="font-semibold text-foreground">{item.name}</h4>
+                      <h4 className="font-medium text-foreground">{item.name}</h4>
                       <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
                     </div>
-                    <span className="text-primary font-bold whitespace-nowrap text-lg font-serif">
+                    <span className="text-foreground font-medium whitespace-nowrap">
                       {item.price}
                     </span>
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="mt-12 text-center"
-        >
-          <div className="inline-flex flex-col sm:flex-row items-center gap-4 bg-background rounded-2xl p-6 border border-border">
+        <div className="mt-12 text-center">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-8 bg-background p-6 border border-border">
             <div className="flex items-center gap-2">
-              <Wine className="w-5 h-5 text-primary" />
-              <span className="font-medium">Menu Enfant · 10€</span>
+              <Wine className="w-4 h-4 text-primary" />
+              <span className="text-sm">Menu Enfant · 10€</span>
             </div>
-            <span className="hidden sm:block text-muted-foreground">|</span>
             <div className="flex items-center gap-2">
-              <Coffee className="w-5 h-5 text-primary" />
-              <span className="font-medium">Formule Midi · à partir de 16€</span>
+              <Coffee className="w-4 h-4 text-primary" />
+              <span className="text-sm">Formule Midi · à partir de 16€</span>
             </div>
-            <span className="hidden sm:block text-muted-foreground">|</span>
-            <span className="text-muted-foreground">Plats à emporter disponibles</span>
+            <span className="text-sm text-muted-foreground">Plats à emporter disponibles</span>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
