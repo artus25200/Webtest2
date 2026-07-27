@@ -15,7 +15,7 @@ export default function HotelSection() {
           <div className="relative">
             <div className="overflow-hidden aspect-[4/3]">
               <img
-                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070&auto=format&fit=crop"
+                src="/Webtest2/images/chambre.jpg"
                 alt="Chambre d'hôtel Ardoise Gourmande"
                 className="w-full h-full object-cover"
                 loading="lazy"

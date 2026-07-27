@@ -1,19 +1,19 @@
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?q=80&w=2070&auto=format&fit=crop",
-    alt: "Salle du restaurant",
+    src: "/Webtest2/images/facade.jpg",
+    alt: "Façade du restaurant L'Ardoise Gourmande",
   },
   {
-    src: "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2074&auto=format&fit=crop",
-    alt: "Plat gastronomique",
+    src: "/Webtest2/images/plat1.jpg",
+    alt: "Magret de canard à l'ardoise",
   },
   {
-    src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop",
-    alt: "Intérieur chaleureux",
+    src: "/Webtest2/images/plat2.jpg",
+    alt: "Confit de canard et garniture",
   },
   {
-    src: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop",
-    alt: "Assiette raffinée",
+    src: "/Webtest2/images/chambre.jpg",
+    alt: "Chambre de l'hôtel",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function GallerySection() {
             L'Art de Recevoir
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Un aperçu de notre cadre chaleureux et de nos créations culinaires.
+            Quelques images de notre restaurant et de nos plats.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function GallerySection() {
             <div
               key={i}
               className={`relative overflow-hidden aspect-[4/3] ${
-                i === 0 ? "col-span-2 row-span-2" : ""
+                i === 0 ? "col-span-2" : ""
               }`}
             >
               <img
