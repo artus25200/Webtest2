@@ -9,10 +9,8 @@
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
-    "@convex-dev/auth": "^0.0.94",
     "@tailwindcss/postcss": "^4.3.3",
     "@tailwindcss/vite": "^4.3.3",
-    "convex": "^1.42.3",
     "framer-motion": "^12.6.0",
     "lucide-react": "^0.471.0",
     "react": "^19.0.0",

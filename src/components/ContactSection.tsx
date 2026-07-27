@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import { useMutation } from "convex/react";
-import { api } from "../../convex/_generated/api";
+import { Send, CheckCircle } from "lucide-react";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -12,21 +10,14 @@ export default function ContactSection() {
     subject: "Réservation",
     message: "",
   });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-  const sendMessage = useMutation(api.contact.submit);
+  const [sent, setSent] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      await sendMessage(form);
-      setStatus("sent");
-      setForm({ name: "", email: "", phone: "", subject: "Réservation", message: "" });
-      setTimeout(() => setStatus("idle"), 4000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 4000);
-    }
+    const body = `Nom: ${form.name}%0AEmail: ${form.email}%0ATéléphone: ${form.phone || "Non renseigné"}%0A%0A${form.message}`;
+    window.open(`mailto:florian.taufine57@gmail.com?subject=${form.subject} - ${form.name}&body=${body}`);
+    setSent(true);
+    setTimeout(() => setSent(false), 4000);
   };
 
   return (
@@ -169,20 +160,12 @@ export default function ContactSection() {
 
                 <button
                   type="submit"
-                  disabled={status === "sending"}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-semibold hover:bg-accent transition-all shadow-md hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-4 rounded-xl font-semibold hover:bg-accent transition-all shadow-md hover:shadow-lg"
                 >
-                  {status === "sending" ? (
-                    "Envoi en cours..."
-                  ) : status === "sent" ? (
+                  {sent ? (
                     <>
                       <CheckCircle className="w-5 h-5" />
-                      Message envoyé !
-                    </>
-                  ) : status === "error" ? (
-                    <>
-                      <AlertCircle className="w-5 h-5" />
-                      Erreur, veuillez réessayer
+                      Message prêt à être envoyé !
                     </>
                   ) : (
                     <>
